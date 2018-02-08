@@ -1,12 +1,14 @@
+import { State } from "./index";
+
 export type Actions = {
-  down: Function;
-  up: Function;
-  upAsync: Function;
+  up: (value: number) => any;
+  upAsync: (value: number) => any;
+  down: (value: number) => any;
 };
 
 export const actions = {
-  down: value => state => ({ count: state.count - value }),
-  up: value => state => ({ count: state.count + value }),
-  upAsync: value => async (state, actions: Actions) =>
+  down: value => (state: State) => ({ count: state.count - value }),
+  up: value => (state: State) => ({ count: state.count + value }),
+  upAsync: value => async (state: State, actions: Actions) =>
     setTimeout(() => actions.up(value), 1000)
 };

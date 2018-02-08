@@ -1,6 +1,6 @@
-import { Actions } from "../state/actions";
+import { Actions, State } from "../state";
 
-export const App = (state, actions: Actions) => (
+export const App = (state: State, actions: Actions) => (
   <div>
     <h1>{state.count}</h1>
     <button onclick={() => actions.down(2)}>-</button>

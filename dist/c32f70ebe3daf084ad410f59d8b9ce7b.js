@@ -537,7 +537,7 @@ var components_1 = require("./components");
 // Set h as global function (TypeScript only)
 window.h = hyperapp_1.h;
 hyperapp_1.app(state_1.state, state_1.actions, components_1.App, document.body);
-},{"hyperapp":8,"./state":3,"./components":4}],22:[function(require,module,exports) {
+},{"hyperapp":8,"./state":3,"./components":4}],28:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -658,5 +658,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[22,2])
+},{}]},{},[28,2])
 //# sourceMappingURL=/dist/c32f70ebe3daf084ad410f59d8b9ce7b.map
