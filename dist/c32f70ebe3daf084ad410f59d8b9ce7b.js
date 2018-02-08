@@ -441,11 +441,7 @@ var __generator = undefined && undefined.__generator || function (thisArg, body)
 var _this = undefined;
 exports.__esModule = true;
 exports.actions = {
-    down: function down(value) {
-        return function (state) {
-            return { count: state.count - value };
-        };
-    },
+    //Up
     up: function up(value) {
         return function (state) {
             return { count: state.count + value };
@@ -457,6 +453,23 @@ exports.actions = {
                 return __generator(this, function (_a) {
                     return [2 /*return*/, setTimeout(function () {
                         return actions.up(value);
+                    }, 1000)];
+                });
+            });
+        };
+    },
+    //Down
+    down: function down(value) {
+        return function (state) {
+            return { count: state.count - value };
+        };
+    },
+    downAsync: function downAsync(value) {
+        return function (state, actions) {
+            return __awaiter(_this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, setTimeout(function () {
+                        return actions.down(value);
                     }, 1000)];
                 });
             });
@@ -497,21 +510,28 @@ exports.App = function (state, actions) {
         h(
             "button",
             { onclick: function onclick() {
-                    return actions.down(2);
+                    return actions.downAsync(1);
+                } },
+            "- async"
+        ),
+        h(
+            "button",
+            { onclick: function onclick() {
+                    return actions.down(1);
                 } },
             "-"
         ),
         h(
             "button",
             { onclick: function onclick() {
-                    return actions.up(2);
+                    return actions.up(1);
                 } },
             "+"
         ),
         h(
             "button",
             { onclick: function onclick() {
-                    return actions.upAsync(2);
+                    return actions.upAsync(1);
                 } },
             "async +"
         )
@@ -536,8 +556,10 @@ var state_1 = require("./state");
 var components_1 = require("./components");
 // Set h as global function (TypeScript only)
 window.h = hyperapp_1.h;
-hyperapp_1.app(state_1.state, state_1.actions, components_1.App, document.body);
-},{"hyperapp":8,"./state":3,"./components":4}],28:[function(require,module,exports) {
+var main = hyperapp_1.app(state_1.state, state_1.actions, components_1.App, document.body);
+window.up = main.up;
+window.down = main.down;
+},{"hyperapp":8,"./state":3,"./components":4}],29:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -658,5 +680,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[28,2])
+},{}]},{},[29,2])
 //# sourceMappingURL=/dist/c32f70ebe3daf084ad410f59d8b9ce7b.map
