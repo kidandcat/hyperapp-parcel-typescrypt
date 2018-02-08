@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({9:[function(require,module,exports) {
+})({8:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -355,7 +355,7 @@ function app(state, actions, view, container) {
     return element;
   }
 }
-},{}],7:[function(require,module,exports) {
+},{}],5:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -371,14 +371,14 @@ exports.actions = {
         };
     }
 };
-},{}],8:[function(require,module,exports) {
+},{}],6:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
 exports.state = {
     count: 0
 };
-},{}],4:[function(require,module,exports) {
+},{}],3:[function(require,module,exports) {
 "use strict";
 
 function __export(m) {
@@ -389,7 +389,7 @@ function __export(m) {
 exports.__esModule = true;
 __export(require("./actions"));
 __export(require("./state"));
-},{"./actions":7,"./state":8}],6:[function(require,module,exports) {
+},{"./actions":5,"./state":6}],7:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -418,7 +418,7 @@ exports.App = function (state, actions) {
         )
     );
 };
-},{}],3:[function(require,module,exports) {
+},{}],4:[function(require,module,exports) {
 "use strict";
 
 function __export(m) {
@@ -428,7 +428,7 @@ function __export(m) {
 }
 exports.__esModule = true;
 __export(require("./app"));
-},{"./app":6}],2:[function(require,module,exports) {
+},{"./app":7}],2:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -438,7 +438,7 @@ var components_1 = require("./components");
 // Set h as global function (TypeScript only)
 window.h = hyperapp_1.h;
 hyperapp_1.app(state_1.state, state_1.actions, components_1.App, document.body);
-},{"hyperapp":9,"./state":4,"./components":3}],10:[function(require,module,exports) {
+},{"hyperapp":8,"./state":3,"./components":4}],9:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -458,7 +458,7 @@ module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
-  var ws = new WebSocket('ws://' + hostname + ':' + '61107' + '/');
+  var ws = new WebSocket('ws://' + hostname + ':' + '62679' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -559,5 +559,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[10,2])
+},{}]},{},[9,2])
 //# sourceMappingURL=/dist/c32f70ebe3daf084ad410f59d8b9ce7b.map
