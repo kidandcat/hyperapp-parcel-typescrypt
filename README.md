@@ -1,6 +1,6 @@
 # Hyperapp + ParcelJS with Typescript
 
-Impressive alternative to Webpack + React + Redux + Redux-obserable/thunks/sagas + Typescript
+Impressive alternative to Webpack + React + Redux + Redux-obserbable/thunks/sagas + Typescript
 
 * Hot module replacement, including hot state and actions change.
 * Typescript
