@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({8:[function(require,module,exports) {
+})({9:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -355,7 +355,7 @@ function app(state, actions, view, container) {
     return element;
   }
 }
-},{}],5:[function(require,module,exports) {
+},{}],7:[function(require,module,exports) {
 "use strict";
 
 var __awaiter = undefined && undefined.__awaiter || function (thisArg, _arguments, P, generator) {
@@ -476,66 +476,12 @@ exports.actions = {
         };
     }
 };
-},{}],6:[function(require,module,exports) {
+},{}],8:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
 exports.state = {
     count: 0
-};
-},{}],3:[function(require,module,exports) {
-"use strict";
-
-function __export(m) {
-    for (var p in m) {
-        if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-    }
-}
-exports.__esModule = true;
-__export(require("./actions"));
-__export(require("./state"));
-},{"./actions":5,"./state":6}],7:[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-exports.App = function (state, actions) {
-    return h(
-        "div",
-        null,
-        h(
-            "h1",
-            null,
-            state.count
-        ),
-        h(
-            "button",
-            { onclick: function onclick() {
-                    return actions.downAsync(1);
-                } },
-            "- async"
-        ),
-        h(
-            "button",
-            { onclick: function onclick() {
-                    return actions.down(1);
-                } },
-            "-"
-        ),
-        h(
-            "button",
-            { onclick: function onclick() {
-                    return actions.up(1);
-                } },
-            "+"
-        ),
-        h(
-            "button",
-            { onclick: function onclick() {
-                    return actions.upAsync(1);
-                } },
-            "async +"
-        )
-    );
 };
 },{}],4:[function(require,module,exports) {
 "use strict";
@@ -546,20 +492,66 @@ function __export(m) {
     }
 }
 exports.__esModule = true;
+__export(require("./actions"));
+__export(require("./state"));
+},{"./actions":7,"./state":8}],11:[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+exports.Button = function (_a) {
+    var text = _a.text,
+        action = _a.action;
+    return h(
+        "button",
+        { onclick: function onclick() {
+                return action(1);
+            } },
+        text
+    );
+};
+},{}],10:[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+var button_1 = require("./button");
+exports.App = function (state, actions) {
+    return h(
+        "div",
+        null,
+        h(
+            "h1",
+            null,
+            state.count
+        ),
+        h(button_1.Button, { text: "- async", action: actions.downAsync }),
+        h(button_1.Button, { text: "-", action: actions.down }),
+        h(button_1.Button, { text: "+", action: actions.up }),
+        h(button_1.Button, { text: "async +", action: actions.upAsync })
+    );
+};
+},{"./button":11}],5:[function(require,module,exports) {
+"use strict";
+
+function __export(m) {
+    for (var p in m) {
+        if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+}
+exports.__esModule = true;
 __export(require("./app"));
-},{"./app":7}],2:[function(require,module,exports) {
+__export(require("./button"));
+},{"./app":10,"./button":11}],2:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
 var hyperapp_1 = require("hyperapp");
 var state_1 = require("./state");
 var components_1 = require("./components");
-// Set h as global function (TypeScript only)
-window.h = hyperapp_1.h;
+// @jsx h
 var main = hyperapp_1.app(state_1.state, state_1.actions, components_1.App, document.body);
 window.up = main.up;
 window.down = main.down;
-},{"hyperapp":8,"./state":3,"./components":4}],29:[function(require,module,exports) {
+},{"hyperapp":9,"./state":4,"./components":5}],14:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -579,7 +571,7 @@ module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
-  var ws = new WebSocket('ws://' + hostname + ':' + '62679' + '/');
+  var ws = new WebSocket('ws://' + hostname + ':' + '50787' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -680,5 +672,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[29,2])
+},{}]},{},[14,2])
 //# sourceMappingURL=/dist/c32f70ebe3daf084ad410f59d8b9ce7b.map
